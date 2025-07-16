@@ -7,6 +7,7 @@ on:
 
 jobs:
   release-plz-release:
+    if: ${{ github.repository_owner == 'Ravencentric' }}
     name: Release-plz release
     runs-on: ubuntu-latest
     permissions:
@@ -27,6 +28,7 @@ jobs:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
   release-plz-pr:
+    if: ${{ github.repository_owner == 'Ravencentric' }}
     name: Release-plz PR
     runs-on: ubuntu-latest
     permissions:
