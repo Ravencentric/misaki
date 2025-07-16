@@ -54,9 +54,14 @@ jobs:
       - name: Install Rust toolchain
         uses: actions-rust-lang/setup-rust-toolchain@fb51252c7ba57d633bc668f941da052e410add48 # v1.13.0
 
+      - name: Install cross-compilation tools
+        if: startsWith(matrix.os, 'ubuntu')
+        uses: taiki-e/setup-cross-toolchain-action@0123528f956f923e7a476f4cc04882bc005e7c89 # v1.29.1
+        with:
+          target: ${{ matrix.target }}
+
       - uses: taiki-e/upload-rust-binary-action@3962470d6e7f1993108411bc3f75a135ec67fc8c # v1.27.0
         with:
           bin: misaki
           target: ${{ matrix.target }}
-          archive: $bin-$tag-$target
           token: ${{ secrets.GITHUB_TOKEN }}
