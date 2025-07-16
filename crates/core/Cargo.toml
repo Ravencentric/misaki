@@ -1,0 +1,21 @@
+[package]
+name = "misaki-core"
+version.workspace = true
+description.workspace = true
+authors.workspace = true
+readme.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+reqwest = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+serde_json = { workspace = true }
+futures = { workspace = true }
+uuid = { version = "1", default-features = false, features = ["v4", "serde", "fast-rng"] }
+serde = { version = "1", features = ["derive"] }
+bon = "3.6.4"
+async-stream = "0.3.6"
+
