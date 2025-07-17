@@ -11,13 +11,6 @@ use std::{
     time::Instant,
 };
 
-// Stolen from https://github.com/astral-sh/uv/blob/96cfca1c8fe711d24215f9d1bb91cea7002aa087/crates/uv-cli/src/lib.rs#L69-L74
-const STYLES: Styles = Styles::styled()
-    .header(AnsiColor::Green.on_default().effects(Effects::BOLD))
-    .usage(AnsiColor::Green.on_default().effects(Effects::BOLD))
-    .literal(AnsiColor::Cyan.on_default().effects(Effects::BOLD))
-    .placeholder(AnsiColor::Cyan.on_default());
-
 /// Fast, asynchronous link checker with optional FlareSolverr support.
 #[derive(Parser)]
 #[command(name ="misaki", version, about, long_about = None, styles = STYLES)]
