@@ -1,0 +1,9 @@
+[workspace]
+dependencies_update = true
+git_release_enable = false
+
+[[package]]
+name = "misaki-cli"
+changelog_include = ["misaki-core"]
+git_release_enable = true
+git_tag_name = "v{{ version }}"
