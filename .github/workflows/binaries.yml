@@ -23,7 +23,6 @@ defaults:
 jobs:
   upload-assets:
     name: ${{ matrix.target }}
-    if: github.repository_owner == 'Ravencentric' && startsWith(github.event.release.name, 'misaki-cli-v')
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -63,5 +62,6 @@ jobs:
       - uses: taiki-e/upload-rust-binary-action@3962470d6e7f1993108411bc3f75a135ec67fc8c # v1.27.0
         with:
           bin: misaki
+          archive: misaki-${{ github.event.release.tag_name }}-${{ matrix.target }}
           target: ${{ matrix.target }}
           token: ${{ secrets.GITHUB_TOKEN }}
