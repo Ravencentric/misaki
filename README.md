@@ -13,7 +13,7 @@ This repository contains two crates:
 - Optional [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) support to bypass Cloudflare
 - JSON output (for the CLI)
 
-## `misaki-core`
+## misaki-core
 
 `misaki-core` is a library for checking the status of URLs asynchronously.
 
@@ -49,7 +49,7 @@ async fn main() -> Result<()> {
 }
 ```
 
-## `misaki-cli`
+## misaki-cli
 
 `misaki-cli` is a command-line tool for checking links.
 
