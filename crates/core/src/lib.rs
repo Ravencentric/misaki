@@ -34,6 +34,10 @@ pub struct LinkChecker {
 impl Default for LinkChecker {
     /// Initializes a `LinkChecker` with a default `Client` configured
     /// with a 10-second timeout and no FlareSolverr integration.
+    /// 
+    /// # Panics
+    /// Panics if the underlying [Client::builder] panics.
+    /// Use [Self::builder] if you want to handle the error.
     fn default() -> Self {
         Self {
             client: Client::builder().timeout(DEFAULT_TIMEOUT).build().unwrap(),
