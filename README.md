@@ -2,21 +2,66 @@
 
 misaki is a fast, asynchronous link checker with optional FlareSolverr support, written in Rust.
 
+This repository contains two crates:
+
+- `misaki-core`: The core library that provides the link-checking functionality.
+- `misaki-cli`: A command-line interface for `misaki-core`.
+
 ## Features
 
 - Fast, asynchronous link checking
 - Optional [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) support to bypass Cloudflare
-- JSON output
+- JSON output (for the CLI)
 
-## Installation
+## `misaki-core`
 
-You can install Misaki from crates.io using cargo:
+`misaki-core` is a library for checking the status of URLs asynchronously.
+
+### Usage
+
+Add `misaki-core` to your `Cargo.toml`:
+
+```console
+$ cargo add misaki-core
+```
+
+Here is an example of how to use `misaki-core`:
+
+```rust
+use anyhow::Result;
+use futures::StreamExt;
+use misaki_core::LinkChecker;
+
+#[tokio::main]
+async fn main() -> Result<()> {
+    let urls = vec!["https://httpbin.org/status/200"; 10];
+    let checker = LinkChecker::builder().build().await?;
+    {
+        let iter = checker.check_all(urls).await;
+        let mut iter = std::pin::pin!(iter);
+
+        while let Some(status) = iter.next().await {
+            println!("{:?}", status);
+        }
+    }
+    checker.close().await?;
+    Ok(())
+}
+```
+
+## `misaki-cli`
+
+`misaki-cli` is a command-line tool for checking links.
+
+### Installation
+
+You can install `misaki-cli` from crates.io using cargo:
 
 ```bash
 cargo install misaki-cli
 ```
 
-## Usage
+### Usage
 
 You can pipe a list of URLs to `misaki` to check them:
 
@@ -30,7 +75,7 @@ Or, you can pass a single URL directly as an argument:
 misaki https://google.com
 ```
 
-### With FlareSolverr
+#### With FlareSolverr
 
 To use FlareSolverr, provide the base URL of your FlareSolverr instance using the `--flaresolverr` flag.
 
