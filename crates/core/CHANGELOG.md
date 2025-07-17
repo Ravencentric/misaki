@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4](https://github.com/Ravencentric/misaki/compare/misaki-core-v0.0.3...misaki-core-v0.0.4) - 2025-07-17
+
+### Fixed
+
+- readme
+- update readme
+- document panics
+
 ## [0.0.2](https://github.com/Ravencentric/misaki/compare/misaki-core-v0.0.1...misaki-core-v0.0.2) - 2025-07-17
 
 ### Other
