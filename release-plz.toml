@@ -6,4 +6,5 @@ git_release_enable = false
 name = "misaki-cli"
 changelog_include = ["misaki-core"]
 git_release_enable = true
+git_release_name = "v{{ version }}"
 git_tag_name = "v{{ version }}"
