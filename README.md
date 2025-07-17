@@ -1,17 +1,11 @@
 # misaki
 
-misaki is a fast, asynchronous link checker with optional FlareSolverr support, written in Rust.
+misaki is a fast, asynchronous link checker with optional [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) support.
 
 This repository contains two crates:
 
 - `misaki-core`: The core library that provides the link-checking functionality.
 - `misaki-cli`: A command-line interface for `misaki-core`.
-
-## Features
-
-- Fast, asynchronous link checking
-- Optional [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) support to bypass Cloudflare
-- JSON output (for the CLI)
 
 ## misaki-core
 
@@ -60,6 +54,8 @@ You can install `misaki-cli` from crates.io using cargo:
 ```bash
 cargo install misaki-cli
 ```
+
+Alternatively, pre-built binaries for various platforms are available on the [GitHub releases page](https://github.com/Ravencentric/misaki/releases/latest).
 
 ### Usage
 
