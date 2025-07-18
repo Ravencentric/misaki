@@ -1,4 +1,4 @@
-#![doc = include_str!("../../../README.md")]
+#![doc = include_str!(env!("CARGO_PKG_README"))]
 
 mod flaresolverr;
 
