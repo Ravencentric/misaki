@@ -11,7 +11,7 @@ license = "MIT OR Apache-2.0"
 edition = "2024"
 rust-version = "1.88"
 keywords = ["link", "checker", "link-checker"]
-categories = ["asynchronous", "Command line utilities"]
+categories = ["asynchronous", "command-line-utilities"]
 repository = "https://github.com/Ravencentric/misaki"
 documentation = "https://docs.rs/misaki-core"
 
