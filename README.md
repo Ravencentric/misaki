@@ -1,11 +1,14 @@
 # misaki
+![Crates.io Version](https://img.shields.io/crates/v/misaki-core)
+![docs.rs](https://img.shields.io/docsrs/misaki-core)
+![Crates.io License](https://img.shields.io/crates/l/misaki-core)
 
 misaki is a fast, asynchronous link checker with optional [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) support.
 
 This repository contains two crates:
 
-- `misaki-core`: The core library that provides the link-checking functionality.
-- `misaki-cli`: A command-line interface for `misaki-core`.
+- [`misaki-core`](https://crates.io/crates/misaki-core): The core library that provides the link-checking functionality.
+- [`misaki-cli`](https://crates.io/crates/misaki-cli): A command-line interface for `misaki-core`.
 
 ## misaki-core
 

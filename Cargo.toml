@@ -10,6 +10,10 @@ readme = "README.md"
 license = "MIT OR Apache-2.0"
 edition = "2024"
 rust-version = "1.88"
+keywords = ["link", "checker", "link-checker"]
+categories = ["asynchronous", "Command line utilities"]
+repository = "https://github.com/Ravencentric/misaki"
+documentation = "https://docs.rs/misaki-core"
 
 [workspace.dependencies]
 reqwest = { version = "0.12.20", default-features = false, features = ["http2", "rustls-tls", "charset", "json"] }
