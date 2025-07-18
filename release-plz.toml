@@ -1,7 +1,7 @@
 [workspace]
 dependencies_update = true
 git_release_enable = false
-changelog_path = "./CHANGELOG.md"
+changelog_path = "CHANGELOG.md"
 
 [[package]]
 name = "misaki-cli"
