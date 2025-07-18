@@ -1,7 +1,7 @@
 [workspace]
 dependencies_update = true
 git_release_enable = false
-changelog_path = "CHANGELOG.md"
+changelog_update = false
 
 [[package]]
 name = "misaki-cli"
@@ -9,19 +9,6 @@ changelog_include = ["misaki-core"]
 git_release_enable = true
 git_release_name = "v{{ version }}"
 git_tag_name = "v{{ version }}"
+changelog_update = true
+changelog_path = "CHANGELOG.md"
 
-[changelog]
-body = """
-
-## `{{ package }}` - [{{ version }}]{%- if release_link -%}({{ release_link }}){% endif %} - {{ timestamp | date(format="%Y-%m-%d") }}
-{% for group, commits in commits | group_by(attribute="group") %}
-### {{ group | upper_first }}
-{% for commit in commits %}
-{%- if commit.scope -%}
-- *({{commit.scope}})* {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message }}{%- if commit.links %} ({% for link in commit.links %}[{{link.text}}]({{link.href}}) {% endfor -%}){% endif %}
-{% else -%}
-- {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message }}
-{% endif -%}
-{% endfor -%}
-{% endfor -%}
-"""
