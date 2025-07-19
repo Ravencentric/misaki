@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6](https://github.com/Ravencentric/misaki/compare/v0.0.5...v0.0.6) - 2025-07-19
+
+### Fixed
+
+- don't inherit readme from workspace
+- cargo metadata
+- get rid of doc attr
+
 ## `misaki-cli` - [0.0.5](https://github.com/Ravencentric/misaki/compare/v0.0.4...v0.0.5) - 2025-07-18
 
 ### Fixed
