@@ -22,7 +22,13 @@ anyhow = "1"
 serde_json = "1"
 futures = "0.3.31"
 
-[profile.release]
-opt-level = 3
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
 codegen-units = 1
 lto = "fat"
+
+# cargo-release configuration
+[workspace.metadata.release]
+shared-version = true
+tag-name = "v{{version}}"
