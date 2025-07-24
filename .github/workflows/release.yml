@@ -37,10 +37,9 @@ jobs:
         id: auth
 
       - name: Publish to crates.io
-        # TODO: Switch to `cargo publish` when it's stable.
         run: |
-          cargo install cargo-release
-          cargo release --no-push --no-tag --no-confirm --execute
+          cargo publish --package misaki-core
+          cargo publish --package misaki-cli
         env:
           CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
 
