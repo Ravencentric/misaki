@@ -1,27 +1,67 @@
 name: Build and publish binaries
 
-permissions:
-  contents: write
-
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 env:
-  CARGO_INCREMENTAL: 0
-  CARGO_NET_GIT_FETCH_WITH_CLI: true
-  CARGO_NET_RETRY: 10
   CARGO_TERM_COLOR: always
-  RUST_BACKTRACE: 1
   RUSTFLAGS: -D warnings
-  RUSTUP_MAX_RETRIES: 10
 
 defaults:
   run:
     shell: bash
 
 jobs:
+  release:
+    environment: crates-io
+    permissions:
+      contents: write
+      id-token: write
+    name: Release ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@fb51252c7ba57d633bc668f941da052e410add48 # v1.13.0
+
+      - name: Lint
+        run: |
+          cargo clippy --all-features --all-targets
+          cargo fmt --all --check
+
+      - name: Publish to crates.io
+        # TODO: Switch to `cargo publish` when it's stable.
+        run: |
+          cargo install cargo-release
+          cargo release --no-push --no-tag --no-confirm --execute
+
+      - name: Generate a changelog
+        shell: bash
+        run: >-
+          pipx run git-cliff --config .github/cliff-template.toml
+          --github-repo "${GH_REPO}"
+          --github-token "${GH_TOKEN}"
+          --latest --strip header
+          --output "CHANGELOG.md"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+
+      - name: Create Release
+        shell: bash
+        run: gh release create "${GH_REF_NAME}" -F "CHANGELOG.md" --fail-on-no-commits
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REF_NAME: ${{ github.ref_name }}
+
   upload-assets:
+    needs: release
     name: ${{ matrix.target }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -62,6 +102,6 @@ jobs:
       - uses: taiki-e/upload-rust-binary-action@3962470d6e7f1993108411bc3f75a135ec67fc8c # v1.27.0
         with:
           bin: misaki
-          archive: misaki-${{ github.event.release.tag_name }}-${{ matrix.target }}
+          archive: misaki-${{ github.ref_name }}-${{ matrix.target }}
           target: ${{ matrix.target }}
           token: ${{ secrets.GITHUB_TOKEN }}
