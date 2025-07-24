@@ -816,7 +816,7 @@ dependencies = [
 
 [[package]]
 name = "misaki-cli"
-version = "0.0.6"
+version = "0.0.8"
 dependencies = [
  "anyhow",
  "clap",
@@ -832,7 +832,7 @@ dependencies = [
 
 [[package]]
 name = "misaki-core"
-version = "0.0.6"
+version = "0.0.8"
 dependencies = [
  "anyhow",
  "async-stream",
