@@ -64,6 +64,8 @@ jobs:
 
   upload-assets:
     needs: release
+    permissions:
+      contents: write
     name: ${{ matrix.target }}
     runs-on: ${{ matrix.os }}
     strategy:
