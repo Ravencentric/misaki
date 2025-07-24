@@ -3,7 +3,7 @@ members = ["crates/*"]
 resolver = "3"
 
 [workspace.package]
-version = "0.0.8"
+version = "0.0.10"
 description = "Fast, asynchronous link checker with optional FlareSolverr support."
 authors = ["Ravencentric <me@ravencentric.cc>"]
 readme = "README.md"
