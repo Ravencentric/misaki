@@ -30,7 +30,7 @@ jobs:
 
       - name: Lint
         run: |
-          cargo clippy --all-features --all-targets
+          cargo clippy --all-features --all-targets --locked
           cargo fmt --all --check
 
       - name: Publish to crates.io
