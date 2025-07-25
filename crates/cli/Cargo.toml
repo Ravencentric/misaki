@@ -3,6 +3,7 @@ name = "misaki-cli"
 version.workspace = true
 description.workspace = true
 authors.workspace = true
+readme.workspace = true
 license.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -26,5 +27,3 @@ clap = { version = "4.5.41", features = ["derive"] }
 clap-stdin = "0.6.0"
 owo-colors = "4"
 itertools = "0.14.0"
-
-
