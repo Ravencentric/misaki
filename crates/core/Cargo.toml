@@ -20,5 +20,5 @@ serde_json = { workspace = true }
 futures = { workspace = true }
 uuid = { version = "1", default-features = false, features = ["v4", "serde", "fast-rng"] }
 serde = { version = "1", features = ["derive"] }
-bon = "3.6.5"
+bon = "3.7.1"
 async-stream = "0.3.6"
