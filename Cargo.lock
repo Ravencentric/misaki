@@ -158,9 +158,9 @@ checksum = "613afe47fcd5fac7ccf1db93babcb082c5994d996f20b8b159f2ad1658eb5724"
 
 [[package]]
 name = "clap"
-version = "4.5.49"
+version = "4.5.52"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f4512b90fa68d3a9932cea5184017c5d200f5921df706d45e853537dea51508f"
+checksum = "aa8120877db0e5c011242f96806ce3c94e0737ab8108532a76a3300a01db2ab8"
 dependencies = [
  "clap_builder",
  "clap_derive",
@@ -168,18 +168,18 @@ dependencies = [
 
 [[package]]
 name = "clap-stdin"
-version = "0.7.0"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ce9eaafece93d07ba62941de901e54d8df03800b7d775000d0d8cd5f876a592d"
+checksum = "d80e97074da664d8e2c49e82cba54c40b9cec15c73810d90bf6a78261ab3ccaa"
 dependencies = [
  "thiserror",
 ]
 
 [[package]]
 name = "clap_builder"
-version = "4.5.49"
+version = "4.5.52"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0025e98baa12e766c67ba13ff4695a887a1eba19569aad00a472546795bd6730"
+checksum = "02576b399397b659c26064fbc92a75fede9d18ffd5f80ca1cd74ddab167016e1"
 dependencies = [
  "anstream",
  "anstyle",
@@ -1101,14 +1101,15 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.143"
+version = "1.0.145"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d401abef1d108fbd9cbaebc3e46611f4b1021f714a0597a71f41ee463f5f4a5a"
+checksum = "402a6f66d8c709116cf22f558eab210f5a50187f702eb4d7e5ef38d9a7f1c79c"
 dependencies = [
  "itoa",
  "memchr",
  "ryu",
  "serde",
+ "serde_core",
 ]
 
 [[package]]
